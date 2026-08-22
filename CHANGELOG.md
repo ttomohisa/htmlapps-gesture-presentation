@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.3.2 - 2026-08-23
+
+- Split large phone Answer payloads into coarse QR parts automatically (typically 2–4).
+- Enlarge the phone Answer QR and add Previous / Next part navigation.
+- Let the PC scanner collect QR parts in any order, ignore duplicates, verify a whole-payload checksum, and apply the Answer automatically when complete.
+- Increase QR scan analysis resolution and try both normal/inverted decoding while preserving the existing camera-stream reuse path.
+- Keep the raw Answer code as a manual fallback and preserve legacy single-QR Answer compatibility.
+
+## 1.3.1 - 2026-08-22
+
+- Wait up to 15 seconds for ICE candidate gathering and reject empty candidate payloads.
+- Add ICE candidate counts and connection diagnostics on both PC and smartphone.
+- Pre-pool host candidates for more reliable serverless LAN pairing.
+- Explicitly allow WebRTC in CSP-capable browsers while keeping runtime network fetch disabled.
+
+
 ## 1.3.0 - 2026-08-21
 
 ### Added

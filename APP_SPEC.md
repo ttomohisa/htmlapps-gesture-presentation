@@ -4,7 +4,7 @@
 
 - **Name:** Gesture Presentation / ジェスチャー・プレゼンテーション
 - **Repository:** `ttomohisa/htmlapps-gesture-presentation`
-- **Version:** `1.3.0`
+- **Version:** `1.3.2`
 - **Purpose:** View PDFs or a sequence of images and move between pages with local hand-swipe recognition.
 - **Long-term direction:** This is the first UI/runtime foundation for Browser Kitty “Air Remote”.
 - **Release artifacts:** `dist/index.html` and `dist/index.self-extract.html`.
@@ -97,7 +97,7 @@ Replacing the source increments a generation token, cancels in-flight PDF render
 
 Stopping or replacing the camera invalidates the inference loop and clears gesture history.
 
-## 7. Non-goals for v1.3
+## 7. Non-goals for v1.3.2
 
 - Controlling unrelated browser tabs or native applications.
 - Multi-hand gestures.
@@ -157,13 +157,15 @@ Stopping or replacing the camera invalidates the inference loop and clears gestu
 - When connected, the PC sends compact presentation state snapshots (page, total, gesture state, blank mode, and timer state).
 - Intended first target: devices on the same Wi-Fi / LAN. Browser network/privacy policies can still affect host-candidate reachability.
 
-## 10.7 Two-QR Air Remote pairing (v1.3)
+## 10.7 Two-step QR Air Remote pairing (v1.3.2)
 
 - PC renders its completed WebRTC offer as a QR code.
 - On HTTP(S), the first QR contains the current app URL plus the offer in the URL fragment so the phone camera opens the same HTML directly in Remote mode.
 - On `file://`, the QR contains an Air Remote payload; the same HTML must already be open on the phone and its built-in QR scanner is used.
 - The phone creates a local answer, renders it as the second QR, and exposes a compact touch-first Remote UI.
-- PC decodes the answer QR on-device with the embedded jsQR runtime and applies it as the remote description.
+- Phone Answer payloads are adaptively split into coarse QR parts (targeting about 2–4 parts for normal SDP sizes). Each part carries the transfer kind, whole-payload checksum, part index, and total count.
+- PC decodes Answer QR parts on-device with the embedded jsQR runtime, accepts them in any order, ignores duplicates, verifies the checksum after assembly, and applies the reconstructed Answer as the remote description.
+- Legacy single-QR Answer payloads and manual copy/paste remain supported.
 - Manual copy/paste remains available only as a fallback when camera access is unavailable.
 - The phone Remote controls Previous / Next, gesture lock, black/white screen, and timer actions; page/timer/blank/lock state is synchronized from the PC.
 - No signaling server, STUN, TURN, CDN, document upload, or camera-frame transfer is used.

@@ -20,8 +20,8 @@ Air Remote is the one optional runtime network feature: it uses a directly negot
 
 1. Put the PC and phone on the same Wi-Fi/LAN.
 2. On the PC, open Air Remote and create the connection QR.
-3. Scan the first QR with the phone camera. Confirm the phone opens Remote mode and displays an answer QR.
-4. On the PC, choose **Scan answer QR**, allow the camera, and scan the phone's QR.
+3. Scan the first QR with the phone camera. Confirm the phone opens Remote mode and displays one or more large answer QR parts.
+4. On the PC, choose **Scan answer QR**, allow the camera, and scan each phone QR part. Confirm the PC shows scan progress; parts may be scanned in any order and duplicates must not count twice.
 5. Confirm both sides report connected.
 6. Verify Previous / Next, gesture lock, black / white screen, and timer controls from the phone.
 7. In DevTools, confirm there is no signaling/STUN/TURN/CDN traffic. WebRTC peer traffic itself is expected.

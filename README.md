@@ -15,7 +15,7 @@ Browser Kitty の将来機能 **Air Remote** につながる最初の実装と�
 - **ジェスチャーロック** — カメラを止めずにページ送りだけ一時停止
 - **プレゼンタイマー** — 5 / 10 / 15分プリセット＋自由入力、全画面HUDからも操作
 - **黒画面 / 白画面** — ボタンまたは `B` / `W` で資料を一時的に隠す
-- **2回QRのAir Remote** — サーバー/STUN/TURNなしでPCとスマホをWebRTC DataChannel接続
+- **2段階QRのAir Remote** — サーバー/STUN/TURNなしでPCとスマホをWebRTC DataChannel接続
 - カメラプレビューは認識を止めずに折りたたみ可能
 - 日本語 / English 切り替え
 - スマートフォンでは「前へ / ジェスチャー / ロック / 次へ」を固定下部に配置
@@ -60,7 +60,7 @@ window.AirRemoteBridge.dispatch('whiteout', 'remote');
 window.AirRemoteBridge.dispatch('timer-toggle', 'remote');
 ```
 
-v1.3では `RTCPeerConnection({ iceServers: [] })` を使い、**PCのOffer QR → スマホ → スマホのAnswer QR → PC** の2回のQR交換だけで `air-remote` DataChannelを直接接続します。シグナリングサーバー、STUN、TURNは使いません。スマホ側には専用Remote画面が開き、前後移動・ジェスチャーロック・黒/白画面・タイマーを操作できます。
+v1.3.2では `RTCPeerConnection({ iceServers: [] })` を使い、**PCのOffer QR → スマホ → スマホのAnswer QR → PC** の2段階で `air-remote` DataChannelを直接接続します。シグナリングサーバー、STUN、TURNは使いません。Answerは長さに応じて読みやすい複数QRへ自動分割されます。スマホ側には専用Remote画面が開き、前後移動・ジェスチャーロック・黒/白画面・タイマーを操作できます。
 
 将来、Hand Landmarkや `✋ / ☝️ / OK` などの静的ジェスチャー、別端末からのWebRTC等を追加しても、表示側はこの操作APIをそのまま利用できます。
 
@@ -132,8 +132,8 @@ powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File .\scripts\check-
 
 MIT License
 
-### Fully local two-QR Air Remote
+### Fully local two-step QR Air Remote
 
-Pair by showing the PC offer QR, scanning it on the phone, then scanning the phone answer QR back on the PC. This directly negotiates a WebRTC DataChannel with no signaling server, STUN, or TURN. After pairing, the phone can control Previous / Next, gesture lock, black / white screen, and the timer while receiving page and state updates from the PC.
+Pair by showing the PC offer QR, scanning it on the phone, then scanning the phone answer QR back on the PC. This directly negotiates a WebRTC DataChannel with no signaling server, STUN, or TURN. When the Answer payload is long, it is automatically split into multiple coarse QR parts (typically 2–4). The PC can collect them in any order, ignores duplicates, verifies a whole-payload checksum, and joins them automatically. This keeps each QR easier to read with lower-quality PC webcams. After pairing, the phone can control Previous / Next, gesture lock, black / white screen, and the timer while receiving page and state updates from the PC.
 
 When served over HTTP(S) on a phone-reachable host (not `localhost`), the first QR opens the same HTML directly in phone Remote mode. With `file://` / `localhost`, open the same HTML on the phone first and use the Remote screen's QR scanner.

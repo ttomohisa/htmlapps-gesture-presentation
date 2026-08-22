@@ -15,7 +15,7 @@ Browser Kitty の将来機能 **Air Remote** につながる最初の実装と�
 - **ジェスチャーロック** — カメラを止めずにページ送りだけ一時停止
 - **プレゼンタイマー** — 5 / 10 / 15分プリセット＋自由入力、全画面HUDからも操作
 - **黒画面 / 白画面** — ボタンまたは `B` / `W` で資料を一時的に隠す
-- **2回QRのAir Remote** — サーバー/STUN/TURNなしでPCとスマホをWebRTC DataChannel接続
+- **2段階QRのAir Remote** — サーバー/STUN/TURNなしでPCとスマホをWebRTC DataChannel接続
 - カメラプレビューは認識を止めずに折りたたみ可能
 - 日本語 / English 切り替え
 - スマートフォンでは「前へ / ジェスチャー / ロック / 次へ」を固定下部に配置
@@ -60,7 +60,7 @@ window.AirRemoteBridge.dispatch('whiteout', 'remote');
 window.AirRemoteBridge.dispatch('timer-toggle', 'remote');
 ```
 
-v1.3では `RTCPeerConnection({ iceServers: [] })` を使い、**PCのOffer QR → スマホ → スマホのAnswer QR → PC** の2回のQR交換だけで `air-remote` DataChannelを直接接続します。シグナリングサーバー、STUN、TURNは使いません。スマホ側には専用Remote画面が開き、前後移動・ジェスチャーロック・黒/白画面・タイマーを操作できます。
+v1.3.2では `RTCPeerConnection({ iceServers: [] })` を使い、**PCのOffer QR → スマホ → スマホのAnswer QR → PC** の2段階で `air-remote` DataChannelを直接接続します。シグナリングサーバー、STUN、TURNは使いません。Answerは長さに応じて読みやすい複数QRへ自動分割されます。スマホ側には専用Remote画面が開き、前後移動・ジェスチャーロック・黒/白画面・タイマーを操作できます。
 
 将来、Hand Landmarkや `✋ / ☝️ / OK` などの静的ジェスチャー、別端末からのWebRTC等を追加しても、表示側はこの操作APIをそのまま利用できます。
 
@@ -132,8 +132,8 @@ powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File .\scripts\check-
 
 MIT License
 
-### 2回QRの完全ローカル Air Remote
+### 2段階QRの完全ローカル Air Remote
 
-PCで接続QRを表示 → スマホで読み取り → スマホの回答QRをPCで読み取り、の2回だけでWebRTC DataChannelを直接接続します。シグナリングサーバー、STUN、TURNは使いません。接続後はスマホから前後移動、ジェスチャーロック、黒/白画面、タイマーを操作でき、ページ番号と状態も同期します。
+PCで接続QRを表示 → スマホで読み取り → スマホの回答QRをPCで読み取り、の2段階でWebRTC DataChannelを直接接続します。シグナリングサーバー、STUN、TURNは使いません。回答データが長い場合はQRを自動で複数枚（通常2〜4枚程度）に分割し、PC側は順不同で収集・重複無視・チェックサム検証したうえで自動結合します。低性能なPCインカメラでも読みやすいよう、1枚あたりの情報量を抑えています。接続後はスマホから前後移動、ジェスチャーロック、黒/白画面、タイマーを操作でき、ページ番号と状態も同期します。
 
 HTTP(S)で公開している場合（`localhost` を除く）、1回目のQRは同じHTMLのスマホRemote画面を直接開きます。`file://` / `localhost` の場合はスマホ側でも同じHTMLを先に開き、Remote画面のQRスキャナーを使います。

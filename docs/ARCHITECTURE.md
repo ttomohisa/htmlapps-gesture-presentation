@@ -115,7 +115,7 @@ No signaling server, STUN, or TURN is configured. v1.2 exposed the offer/answer 
 `window.AirRemoteTransport` exposes the host lifecycle used by the QR pairing flow: `createOffer()`, `applyAnswer(code)`, `close()`, and `status`.
 
 
-## Air Remote two-QR pairing (v1.3)
+## Air Remote two-step QR pairing (v1.3.2)
 
 ```text
 PC Gesture Presentation
@@ -125,7 +125,8 @@ PC Gesture Presentation
 Phone camera / Remote mode
   │  3. setRemoteDescription(offer)
   │  4. create answer + local ICE candidates
-  │  5. gzip/Base64URL → answer QR
+  │  5. gzip/Base64URL → adaptive split answer QR parts
+  │     (part index + total + whole-payload checksum)
   ▼
 PC camera scanner (jsQR)
   │  6. setRemoteDescription(answer)
