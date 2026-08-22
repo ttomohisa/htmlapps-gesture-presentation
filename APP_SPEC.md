@@ -4,7 +4,7 @@
 
 - **Name:** Gesture Presentation / ジェスチャー・プレゼンテーション
 - **Repository:** `ttomohisa/htmlapps-gesture-presentation`
-- **Version:** `1.3.2`
+- **Version:** `1.3.3`
 - **Purpose:** View PDFs or a sequence of images and move between pages with local hand-swipe recognition.
 - **Long-term direction:** This is the first UI/runtime foundation for Browser Kitty “Air Remote”.
 - **Release artifacts:** `dist/index.html` and `dist/index.self-extract.html`.
@@ -97,7 +97,7 @@ Replacing the source increments a generation token, cancels in-flight PDF render
 
 Stopping or replacing the camera invalidates the inference loop and clears gesture history.
 
-## 7. Non-goals for v1.3.2
+## 7. Non-goals for v1.3.3
 
 - Controlling unrelated browser tabs or native applications.
 - Multi-hand gestures.
@@ -157,7 +157,7 @@ Stopping or replacing the camera invalidates the inference loop and clears gestu
 - When connected, the PC sends compact presentation state snapshots (page, total, gesture state, blank mode, and timer state).
 - Intended first target: devices on the same Wi-Fi / LAN. Browser network/privacy policies can still affect host-candidate reachability.
 
-## 10.7 Two-step QR Air Remote pairing (v1.3.2)
+## 10.7 Two-step QR Air Remote pairing (v1.3.3)
 
 - PC renders its completed WebRTC offer as a QR code.
 - On HTTP(S), the first QR contains the current app URL plus the offer in the URL fragment so the phone camera opens the same HTML directly in Remote mode.

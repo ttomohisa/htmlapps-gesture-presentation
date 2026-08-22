@@ -60,7 +60,7 @@ window.AirRemoteBridge.dispatch('whiteout', 'remote');
 window.AirRemoteBridge.dispatch('timer-toggle', 'remote');
 ```
 
-v1.3.2では `RTCPeerConnection({ iceServers: [] })` を使い、**PCのOffer QR → スマホ → スマホのAnswer QR → PC** の2段階で `air-remote` DataChannelを直接接続します。シグナリングサーバー、STUN、TURNは使いません。Answerは長さに応じて読みやすい複数QRへ自動分割されます。スマホ側には専用Remote画面が開き、前後移動・ジェスチャーロック・黒/白画面・タイマーを操作できます。
+v1.3.3では `RTCPeerConnection({ iceServers: [] })` を使い、**PCのOffer QR → スマホ → スマホのAnswer QR → PC** の2段階で `air-remote` DataChannelを直接接続します。シグナリングサーバー、STUN、TURNは使いません。Answerは長さに応じて読みやすい複数QRへ自動分割されます。スマホ側には専用Remote画面が開き、前後移動・ジェスチャーロック・黒/白画面・タイマーを操作できます。
 
 将来、Hand Landmarkや `✋ / ☝️ / OK` などの静的ジェスチャー、別端末からのWebRTC等を追加しても、表示側はこの操作APIをそのまま利用できます。
 

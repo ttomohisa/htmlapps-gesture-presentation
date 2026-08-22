@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.3 - 2026-08-23
+
+- Fixed the first split Answer QR being misclassified because its `AR1G.` prefix contains a dot.
+- Split QR parsing now accepts the complete encoded payload alphabet while preserving checksum validation.
+
 ## 1.3.2 - 2026-08-23
 
 - Split large phone Answer payloads into coarse QR parts automatically (typically 2–4).

@@ -115,7 +115,7 @@ No signaling server, STUN, or TURN is configured. v1.2 exposed the offer/answer 
 `window.AirRemoteTransport` exposes the host lifecycle used by the QR pairing flow: `createOffer()`, `applyAnswer(code)`, `close()`, and `status`.
 
 
-## Air Remote two-step QR pairing (v1.3.2)
+## Air Remote two-step QR pairing (v1.3.3)
 
 ```text
 PC Gesture Presentation
