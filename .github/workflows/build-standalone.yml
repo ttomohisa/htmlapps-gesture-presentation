@@ -1,0 +1,24 @@
+name: Build standalone HTML
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Repository checks
+        shell: powershell
+        run: powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File .\scripts\check-repository.ps1
+      - name: Build
+        shell: cmd
+        run: build-standalone.bat
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesture-presentation-dist
+          path: dist/

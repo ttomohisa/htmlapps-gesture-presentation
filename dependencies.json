@@ -1,0 +1,97 @@
+{
+  "$schema": "./schemas/dependencies.schema.json",
+  "dependencies": [
+    {
+      "id": "pdfjs",
+      "package": "pdfjs-dist",
+      "version": "3.11.174",
+      "license": "Apache-2.0",
+      "homepage": "https://mozilla.github.io/pdf.js/",
+      "assets": [
+        {
+          "key": "runtime",
+          "path": "build/pdf.min.js",
+          "mime": "text/javascript",
+          "stripSourceMapComment": true,
+          "compression": "auto"
+        },
+        {
+          "key": "worker",
+          "path": "build/pdf.worker.min.js",
+          "mime": "text/javascript",
+          "stripSourceMapComment": true,
+          "compression": "auto"
+        }
+      ]
+    },
+    {
+      "id": "onnxruntime",
+      "package": "onnxruntime-web",
+      "version": "1.27.0",
+      "license": "MIT",
+      "homepage": "https://onnxruntime.ai/",
+      "assets": [
+        {
+          "key": "runtime",
+          "path": "dist/ort.wasm.bundle.min.mjs",
+          "mime": "text/javascript",
+          "stripSourceMapComment": true,
+          "compression": "auto"
+        },
+        {
+          "key": "wasm",
+          "path": "dist/ort-wasm-simd-threaded.wasm",
+          "mime": "application/wasm",
+          "compression": "auto"
+        }
+      ]
+    },
+    {
+      "id": "blazepalm",
+      "package": "jp.keijiro.mediapipe.blazepalm",
+      "version": "2.1.1",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/keijiro/BlazePalmBarracuda",
+      "assets": [
+        {
+          "key": "model",
+          "path": "ONNX/palm_detection_barracuda.onnx",
+          "mime": "application/octet-stream",
+          "compression": "auto"
+        }
+      ]
+    },
+    {
+      "id": "qrcode",
+      "package": "qrcode-generator",
+      "version": "2.0.4",
+      "license": "MIT",
+      "homepage": "https://github.com/kazuhikoarase/qrcode-generator",
+      "assets": [
+        {
+          "key": "runtime",
+          "path": "dist/qrcode.js",
+          "mime": "text/javascript",
+          "stripSourceMapComment": true,
+          "compression": "auto"
+        }
+      ]
+    },
+    {
+      "id": "jsqr",
+      "package": "jsqr",
+      "version": "1.4.0",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/cozmo/jsQR",
+      "assets": [
+        {
+          "key": "runtime",
+          "path": "dist/jsQR.js",
+          "mime": "text/javascript",
+          "stripSourceMapComment": true,
+          "compression": "auto"
+        }
+      ]
+    }
+  ]
+}
