@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.4 - 2026-10-09
+
+- Add the canonical favicon using the existing embedded icon without changing its design.
+- Add Japanese and English screenshots for the app catalog and documentation.
+- Regenerate the stale v1.3.0 root distribution from the already committed v1.3.3 source, including its existing Air Remote split-QR, scanner lifecycle, ICE diagnostics, and WebRTC CSP fixes.
+
 ## 1.3.3 - 2026-08-23
 
 - Fixed the first split Answer QR being misclassified because its `AR1G.` prefix contains a dot.

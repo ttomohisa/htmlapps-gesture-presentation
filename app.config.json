@@ -3,7 +3,7 @@
   "name": "Gesture Presentation",
   "nameJa": "ジェスチャー・プレゼンテーション",
   "slug": "gesture-presentation",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Present PDFs and images with local hand gestures, presentation tools, and two-QR serverless Air Remote pairing with adaptive split answer QRs.",
   "descriptionJa": "PDFや画像を、端末内の手ジェスチャー認識・プレゼンツール・2回QR・回答QR自動分割の完全ローカルAir Remoteで操作できるプレゼンテーションビューアーです。",
   "defaultLanguage": "auto",

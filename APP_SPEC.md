@@ -4,7 +4,7 @@
 
 - **Name:** Gesture Presentation / ジェスチャー・プレゼンテーション
 - **Repository:** `ttomohisa/htmlapps-gesture-presentation`
-- **Version:** `1.3.3`
+- **Version:** `1.3.4`
 - **Purpose:** View PDFs or a sequence of images and move between pages with local hand-swipe recognition.
 - **Long-term direction:** This is the first UI/runtime foundation for Browser Kitty “Air Remote”.
 - **Release artifacts:** `dist/index.html` and `dist/index.self-extract.html`.
