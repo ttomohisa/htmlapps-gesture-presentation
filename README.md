@@ -3,6 +3,8 @@
 **PDFや画像を、手を左右に振ってページ送りできるローカル処理のプレゼンテーションビューアーです。**  
 Browser Kitty の将来機能 **Air Remote** につながる最初の実装として、表示側の操作APIと手ジェスチャー入力を分離しています。
 
+![Application screenshot in English](assets/screenshot-en.png)
+
 ## 特徴
 
 - **PDF / 画像に対応** — PDF 1ファイル、または PNG / JPEG / WebP を複数選択
