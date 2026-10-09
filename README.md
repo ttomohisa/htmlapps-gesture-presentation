@@ -5,6 +5,8 @@ Browser Kitty の将来機能 **Air Remote** につながる最初の実装と�
 
 ![Application screenshot in English](assets/screenshot-en.png)
 
+Captured from the public demo (v1.3.3) with no document selected, camera control stopped, and Air Remote disconnected.
+
 ## 特徴
 
 - **PDF / 画像に対応** — PDF 1ファイル、または PNG / JPEG / WebP を複数選択
